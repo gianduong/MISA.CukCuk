@@ -82,6 +82,29 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "MISA.CukCuk.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/MISA.CukCuk.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MISA.CukCuk.Core.dll": {}
+        }
+      },
+      "MISA.CukCuk.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "MISA.CukCuk.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MISA.CukCuk.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MISA.CukCuk.Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -271,10 +294,22 @@
         "swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "MISA.CukCuk.Core/1.0.0": {
+      "type": "project",
+      "path": "../MISA.CukCuk.Core/MISA.CukCuk.Core.csproj",
+      "msbuildProject": "../MISA.CukCuk.Core/MISA.CukCuk.Core.csproj"
+    },
+    "MISA.CukCuk.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../MISA.CukCuk.Infrastructure/MISA.CukCuk.Infrastructure.csproj",
+      "msbuildProject": "../MISA.CukCuk.Infrastructure/MISA.CukCuk.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "MISA.CukCuk.Core >= 1.0.0",
+      "MISA.CukCuk.Infrastructure >= 1.0.0",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.10.13",
       "Swashbuckle.AspNetCore >= 5.6.3"
     ]
@@ -286,11 +321,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\MISA.CukCuk\\MISA.CukCuk.WEB\\MISA.CukCuk.WEB.csproj",
+      "projectUniqueName": "E:\\gitFile\\MISA.CukCuk\\MISA.CukCuk.WEB\\MISA.CukCuk.WEB.csproj",
       "projectName": "MISA.CukCuk.WEB",
-      "projectPath": "C:\\Users\\ASUS\\source\\repos\\MISA.CukCuk\\MISA.CukCuk.WEB\\MISA.CukCuk.WEB.csproj",
+      "projectPath": "E:\\gitFile\\MISA.CukCuk\\MISA.CukCuk.WEB\\MISA.CukCuk.WEB.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASUS\\source\\repos\\MISA.CukCuk\\MISA.CukCuk.WEB\\obj\\",
+      "outputPath": "E:\\gitFile\\MISA.CukCuk\\MISA.CukCuk.WEB\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -310,7 +345,14 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "E:\\gitFile\\MISA.CukCuk\\MISA.CukCuk.Core\\MISA.CukCuk.Core.csproj": {
+              "projectPath": "E:\\gitFile\\MISA.CukCuk\\MISA.CukCuk.Core\\MISA.CukCuk.Core.csproj"
+            },
+            "E:\\gitFile\\MISA.CukCuk\\MISA.CukCuk.Infrastructure\\MISA.CukCuk.Infrastructure.csproj": {
+              "projectPath": "E:\\gitFile\\MISA.CukCuk\\MISA.CukCuk.Infrastructure\\MISA.CukCuk.Infrastructure.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
