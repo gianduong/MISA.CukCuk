@@ -10,7 +10,7 @@ namespace MISA.Common.Entities
         public string EmployeeCode { get; set; }
         public string FullName { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public int? Gender { get; set; }
+        public int Gender { get; set; } = 0;
         public Guid DepartmentId { get; set; }
         public string PositionName { get; set; }
         public string IdentifyNumber { get; set; }   

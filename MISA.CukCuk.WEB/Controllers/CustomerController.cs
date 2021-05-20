@@ -14,9 +14,8 @@ namespace MISA.CukCuk.WEB.Controllers
     [ApiController]
     public class CustomerController : BaseController<Customer>
     {
-        public CustomerController(ICustomerRepository baseBL):base(baseBL)
+        public CustomerController(ICustomerRepository baseBL, ICustomerService customerService):base(baseBL, customerService)
         {
-
         }
     }
 }

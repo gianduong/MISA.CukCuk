@@ -1,38 +1,49 @@
 ﻿using MISA.Common.Entities;
+using MISA.CukCuk.Core.Exceptions;
+using MISA.CukCuk.Core.Interfaces.Repository;
 using MISA.CukCuk.Core.Interfaces.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace MISA.CukCuk.Core.Services
 {
-    public class CustomerService : ICustomerService
+    public class CustomerService : BaseService<Customer>, ICustomerService
     {
-        public int Delete(Guid CustomerId)
+        ICustomerRepository _service;
+        public CustomerService(ICustomerRepository service):base(service)
         {
-            throw new NotImplementedException();
+            _service = service;
         }
 
-        public IEnumerable<Customer> GetAll()
+        protected override void ValidateCustom(Customer entity)
         {
-            throw new NotImplementedException();
-        }
+            if (entity is Customer)
+            {
+                var customer = entity as Customer;
 
-        public Customer GetById(Guid CustomerId)
-        {
-            throw new NotImplementedException();
-        }
+                // 2. Check mã khách hàng đã tồn tại hay chưa?
+                var isExists = _service.CheckCustomerCodeExist(customer.CustomerCode);
+                if (isExists == true)
+                {
+                    throw new GuardException<Customer>("Mã khách hàng đã tồn tại trong hệ thống, vui lòng kiểm tra lại", null);
+                }
 
-        public int Insert(Customer Customer)
-        {
-            throw new NotImplementedException();
-        }
+                // 3. Kiểm tra Email có đúng định dạng hay không?
+                var emailTemplate = @"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
+                if (!Regex.IsMatch(customer.Email, emailTemplate))
+                {
+                    throw new GuardException<Customer>("Email không đúng định dạng, vui lòng kiểm tra lại", null);
+                }
 
-        public int Update(Customer customer)
-        {
-            throw new NotImplementedException();
+                if (_service.CheckEmailExists(customer.Email))
+                {
+                    throw new GuardException<Customer>("Email đã tồn tại trong hệ thống, vui lòng kiểm tra lại", null);
+                }
+            }
         }
     }
 }

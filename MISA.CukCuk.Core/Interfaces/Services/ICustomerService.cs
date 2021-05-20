@@ -7,12 +7,7 @@ using System.Threading.Tasks;
 
 namespace MISA.CukCuk.Core.Interfaces.Services
 {
-    public interface ICustomerService
+    public interface ICustomerService:IBaseService<Customer>
     {
-        IEnumerable<Customer> GetAll();
-        Customer GetById(Guid CustomerId);
-        int Insert(Customer Customer);
-        int Update(Customer customer);
-        int Delete(Guid CustomerId);
     }
 }

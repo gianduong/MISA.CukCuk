@@ -8,7 +8,26 @@ using System.Threading.Tasks;
 
 namespace MISA.CukCuk.Infrastructure.Repository
 {
-    public class CustomerGroupRepository: BaseRepository<Customer>, ICustomerGroupRepository
+    public class CustomerGroupRepository : BaseRepository<Customer>, ICustomerGroupRepository
     {
+        public int Insert(CustomerGroup entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Update(CustomerGroup entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<CustomerGroup> IBaseRepository<CustomerGroup>.GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        CustomerGroup IBaseRepository<CustomerGroup>.GetById(Guid id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

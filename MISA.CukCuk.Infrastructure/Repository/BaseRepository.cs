@@ -10,9 +10,15 @@ using MySqlConnector;
 
 namespace MISA.CukCuk.Infrastructure.Repository
 {
+    /// <summary>
+    /// Class thao tác trực tiếp với database
+    /// </summary>
+    /// <typeparam name="T">đối tượng cần thao tác</typeparam>
     public class BaseRepository<T> : IBaseRepository<T>
     {
-
+        /// <summary>
+        /// Khởi tạo kết nối đến database
+        /// </summary>
         protected String _connectionString = "" +
                "Host = 47.241.69.179;" +
                "Port = 3306;" +
@@ -22,7 +28,13 @@ namespace MISA.CukCuk.Infrastructure.Repository
 
         // 2. Khởi tạo kết nối:
         protected IDbConnection _dbConnection;
-
+        /// <summary>
+        /// Hàm xóa dữ liệu trong table
+        /// </summary>
+        /// <param name="id">Id cần xóa</param>
+        /// <returns>
+        /// số hàng xóa được trong database
+        /// </returns>
         public int Delete(Guid id)
         {
             using (_dbConnection = new MySqlConnection(_connectionString))
@@ -35,7 +47,12 @@ namespace MISA.CukCuk.Infrastructure.Repository
                 return rowsAffect;
             }
         }
-
+        /// <summary>
+        /// Lấy toàn bộ dữ liệu trong table
+        /// </summary>
+        /// <returns>
+        /// Danh sách các cột lấy được trong database
+        /// </returns>
         public IEnumerable<T> GetAll()
         {
             using (_dbConnection = new MySqlConnection(_connectionString))
@@ -46,7 +63,13 @@ namespace MISA.CukCuk.Infrastructure.Repository
                 return entities;
             }
         }
-
+        /// <summary>
+        /// Hàm lấy dữ liệu theo mã id
+        /// </summary>
+        /// <param name="id">Id cần lấy</param>
+        /// <returns>
+        /// giá trị trong hàng lấy được
+        /// </returns>
         public T GetById(Guid id)
         {
             using (_dbConnection = new MySqlConnection(_connectionString))
@@ -57,7 +80,11 @@ namespace MISA.CukCuk.Infrastructure.Repository
                 return entity;
             }
         }
-
+        /// <summary>
+        /// thêm một hàng vào trong table
+        /// </summary>
+        /// <param name="entity">đối tương cần thêm</param>
+        /// <returns>số hàng thao tác được trên table</returns>
         public int Insert(T entity)
         {
             using (_dbConnection = new MySqlConnection(_connectionString))
@@ -68,7 +95,11 @@ namespace MISA.CukCuk.Infrastructure.Repository
                 return rowsAffect;
             }
         }
-
+        /// <summary>
+        /// Cập nhật giá trị của đối tượng entity
+        /// </summary>
+        /// <param name="entity">đối tượng cần cập nhật</param>
+        /// <returns>số hàng thao tác được trên bảng</returns>
         public int Update(T entity)
         {
             using (_dbConnection = new MySqlConnection(_connectionString))

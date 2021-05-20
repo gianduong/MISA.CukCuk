@@ -13,10 +13,12 @@ namespace MISA.CukCuk.WEB.Controllers
     [ApiController]
     public class BaseController<T> : Controller
     {     
-        IBaseRepository<T> _baseBL;
-        public BaseController(IBaseRepository<T> baseBL)
+        IBaseRepository<T> _baseRepository;
+        IBaseService<T> _baseService;
+        public BaseController(IBaseRepository<T> baseBL, IBaseService<T> baseService)
         {
-            _baseBL = baseBL;
+            _baseRepository = baseBL;
+            _baseService = baseService;
         }
         /// <summary>
         /// Lấy toàn bộ dữ liệu
@@ -32,7 +34,7 @@ namespace MISA.CukCuk.WEB.Controllers
         {
             try 
             { 
-                var rs = _baseBL.GetAll();
+                var rs = _baseRepository.GetAll();
                 if (rs != null)
                 {
                     return Ok(rs);
@@ -66,7 +68,7 @@ namespace MISA.CukCuk.WEB.Controllers
         {
             try
             {
-                var rs = _baseBL.GetById(id);
+                var rs = _baseRepository.GetById(id);
                 // 4. Trả về cho Client:
                 if (rs != null)
                 {
@@ -103,7 +105,7 @@ namespace MISA.CukCuk.WEB.Controllers
         {
             try
             {
-                var rowAffects = _baseBL.Insert(entity);
+                var rowAffects = _baseService.Insert(entity);
                 if (rowAffects > 0)
                 {
                     return Ok();
@@ -150,7 +152,7 @@ namespace MISA.CukCuk.WEB.Controllers
         {
             try
             {
-                var rowAffects = _baseBL.Update(entity);
+                var rowAffects = _baseService.Update(entity);
                 if (rowAffects > 0)
                 {
                     return Ok();
@@ -186,7 +188,7 @@ namespace MISA.CukCuk.WEB.Controllers
         {
             try
             {
-                var rowAffects = _baseBL.Delete(id);
+                var rowAffects = _baseRepository.Delete(id);
                 if (rowAffects > 0)
                 {
                     return StatusCode(200, "Xóa thành công!");
