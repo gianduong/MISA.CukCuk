@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MISA.CukCuk.Core.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,7 +8,7 @@ namespace MISA.Common.Entities
     /// <summary>
     /// Thông tin của Nhóm khách hàng
     /// </summary>
-    /// CreatedBy: DuongNG
+    /// CreatedBy: DuongNG (20/05/2021)
     public class CustomerGroup
     {
         #region Declare
@@ -34,6 +35,7 @@ namespace MISA.Common.Entities
         /// <summary>
         /// Tên nhóm khách hàng
         /// </summary>
+        [Required("Tên nhóm không được phép để trống!")]
         public string CustomerGroupName { get; set; }
         /// <summary>
         /// Mô tả nếu có

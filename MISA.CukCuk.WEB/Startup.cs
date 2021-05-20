@@ -36,13 +36,21 @@ namespace MISA.CukCuk.WEB
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MISA.CukCuk.WEB", Version = "v1" });
             });
+            //base 
             services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+            //customer
             services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped<ICustomerRepository, CustomerRepository>();
+            //customerGroup
             services.AddScoped<ICustomerGroupRepository, CustomerGroupRepository>();
-            services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped<ICustomerGroupService, CustomerGroupService>();
+            //Employee
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<IEmployeeService, EmployeeService>();
+            //Department
+            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+            services.AddScoped<IDepartmentService, DepartmentService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

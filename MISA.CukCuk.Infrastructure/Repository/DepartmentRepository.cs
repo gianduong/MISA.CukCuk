@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MISA.CukCuk.Infrastructure.Repository
 {
-    public class CustomerGroupRepository : BaseRepository<CustomerGroup>, ICustomerGroupRepository
+    public class DepartmentRepository: BaseRepository<Department>, IDepartmentRepository
     {
     }
 }

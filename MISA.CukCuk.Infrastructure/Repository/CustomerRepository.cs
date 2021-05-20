@@ -19,7 +19,7 @@ namespace MISA.CukCuk.Infrastructure.Repository
             // 3. Thực thi lệnh lấy dữ liệu trong Database:
             var sqlCommand = $"Proc_CheckCustomerCodeExists";
             DynamicParameters dynamicParameters = new DynamicParameters();
-            dynamicParameters.Add("@m_CustomerCode", customerCode);
+            dynamicParameters.Add("@d_CustomerCode", customerCode);
             var res = _dbConnection.ExecuteScalar<bool>(sqlCommand, dynamicParameters, commandType: CommandType.StoredProcedure);
             return res;
         }
@@ -28,7 +28,7 @@ namespace MISA.CukCuk.Infrastructure.Repository
         {
             _dbConnection = new MySqlConnection(_connectionString);
             // 3. Thực thi lệnh lấy dữ liệu trong Database:
-            var sqlCommand = $"Proc_D_CheckCustomerEmailExist";
+            var sqlCommand = $"Proc_D_CheckCustomerEmailExists";
             DynamicParameters dynamicParameters = new DynamicParameters();
             dynamicParameters.Add("@d_Email", email);
             var res = _dbConnection.ExecuteScalar<bool>(sqlCommand, dynamicParameters, commandType: CommandType.StoredProcedure);

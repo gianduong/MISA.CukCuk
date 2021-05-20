@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MISA.CukCuk.Core.Interfaces.Services
+namespace MISA.CukCuk.Core.Interfaces.Repository
 {
-    public interface IDepartmentService:IBaseService<Department>
+    public interface IDepartmentRepository: IBaseRepository<Department>
     {
     }
 }
