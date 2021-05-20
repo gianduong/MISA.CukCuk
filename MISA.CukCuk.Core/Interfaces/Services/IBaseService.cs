@@ -8,10 +8,7 @@ namespace MISA.CukCuk.Core.Interfaces.Services
 {
     public interface IBaseService<T>
     {
-        IEnumerable<T> GetAll();
-        T GetById(Guid id);
         int Insert(T entity);
         int Update(T entity);
-        int Delete(Guid id);
     }
 }

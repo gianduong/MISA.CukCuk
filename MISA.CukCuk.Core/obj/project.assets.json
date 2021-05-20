@@ -8,24 +8,19 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\ASUS\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\ngduong\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\gitFile\\MISA.CukCuk\\MISA.CukCuk.Core\\MISA.CukCuk.Core.csproj",
+      "projectUniqueName": "D:\\MISA.CukCuk\\MISA.CukCuk.Core\\MISA.CukCuk.Core.csproj",
       "projectName": "MISA.CukCuk.Core",
-      "projectPath": "E:\\gitFile\\MISA.CukCuk\\MISA.CukCuk.Core\\MISA.CukCuk.Core.csproj",
-      "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "E:\\gitFile\\MISA.CukCuk\\MISA.CukCuk.Core\\obj\\",
+      "projectPath": "D:\\MISA.CukCuk\\MISA.CukCuk.Core\\MISA.CukCuk.Core.csproj",
+      "packagesPath": "C:\\Users\\ngduong\\.nuget\\packages\\",
+      "outputPath": "D:\\MISA.CukCuk\\MISA.CukCuk.Core\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\ngduong\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -65,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }
